@@ -1,0 +1,118 @@
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 0.5em;
+  padding: 0.25em 1em;
+  margin: 0.375em;
+  font-family: "Kanit", sans-serif;
+  transition: opacity 250ms linear, transform 250ms ease-in-out, background-color 200ms ease-out;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: block;
+  font-family: "Metrophobic", sans-serif;
+  background: #282735;
+  color: #d9d9d9;
+  text-align: center;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-family: "Kanit", sans-serif;
+  color: white;
+  line-height: 1.2;
+}
+
+h2,
+h3 {
+  font-family: "Viga", sans-serif;
+  font-weight: 400;
+}
+
+.container {
+  width: 85%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.spacing > * + * {
+  margin-top: 1.375rem;
+}
+
+.btn:hover, .btn:focus {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.btn--primary {
+  background: #7880b5;
+  color: white;
+  border: 4px solid #7880b5;
+}
+
+.btn--accent {
+  color: #ddff94;
+  border: 4px solid #ddff94;
+}
+
+.btn--accent:hover, .btn--accent:focus {
+  background: #ddff94;
+  color: #282735;
+}
+
+.hero {
+  margin: 7em auto;
+}
+
+.section__sub-title {
+  color: #ddff94;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.section__details {
+  padding: 0 1.125em;
+}
+
+.section-features .feature-item {
+  margin: 3.75rem auto;
+  transform: scale(0.9);
+  transition: transform 250ms ease-in-out;
+}
+
+.section-features .feature-item:hover {
+  transform: scale(1);
+}
+/*# sourceMappingURL=style.css.map */

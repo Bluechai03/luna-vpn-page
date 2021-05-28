@@ -1,0 +1,139 @@
+$clr--background: hsl(244, 16%, 18%);
+$clr--primary: hsl(232, 29%, 59%);
+$clr--accent: hsl(79, 100%, 79%);
+$clr--tertiary: hsl(18, 100%, 72%);
+$br--radius: 15px;
+$ff--heading: "Kanit", sans-serif;
+$ff--sub-heading: "Viga", sans-serif;
+$ff--body: "Metrophobic", sans-serif;
+$clr--heading: hsl(0, 0%, 100%);
+$clr--text: hsl(0, 0%, 85%);
+
+// Mixins
+
+// Placeholders
+%btn {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 0.5em;
+  padding: 0.25em 1em;
+  margin: 0.375em;
+  font-family: $ff--heading;
+  transition: opacity 250ms linear, transform 250ms ease-in-out,
+    background-color 200ms ease-out;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: block;
+  font-family: $ff--body;
+  background: $clr--background;
+  color: $clr--text;
+  text-align: center;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-family: $ff--heading;
+  color: $clr--heading;
+  line-height: 1.2;
+}
+
+h2,
+h3 {
+  font-family: $ff--sub-heading;
+  font-weight: 400;
+}
+
+.container {
+  width: 85%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.spacing > * + * {
+  margin-top: 1.375rem;
+}
+
+.btn {
+  @extend %btn;
+  &:hover,
+  &:focus {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+
+  &--primary {
+    background: $clr--primary;
+    color: white;
+    border: 4px solid $clr--primary;
+  }
+
+  &--accent {
+    color: $clr--accent;
+    border: 4px solid $clr--accent;
+    &:hover,
+    &:focus {
+      background: $clr--accent;
+      color: $clr--background;
+    }
+  }
+}
+
+.hero {
+  margin: 7em auto;
+}
+
+.section {
+  &__sub-title {
+    color: $clr--accent;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  &__details {
+    padding: 0 1.125em;
+  }
+
+  &-features {
+    .feature-item {
+      margin: 3.75rem auto;
+      transform: scale(0.9);
+      transition: transform 250ms ease-in-out;
+      &:hover {
+        transform: scale(1);
+      }
+    }
+  }
+}
