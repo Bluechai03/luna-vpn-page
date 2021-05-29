@@ -10,6 +10,12 @@
   transition: opacity 100ms linear, transform 100ms ease-in-out, background-color 100ms ease-out, border 100ms ease-in-out;
 }
 
+.nav .hamburger, .nav .hamburger div, .nav__menu, .nav__menu div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 *,
 *::before,
 *::after {
@@ -156,8 +162,125 @@ h3 {
   padding: 0.75rem 1.125rem;
 }
 
+.nav {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+}
+
+.nav .toggler {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.nav .toggler:checked ~ .nav__menu {
+  visibility: visible;
+}
+
+.nav .toggler:checked ~ .nav__menu > div {
+  transform: scale(1);
+  transition: all 400ms ease-in;
+}
+
+.nav .toggler:checked ~ .nav__menu ~ .nav__list {
+  opacity: 1;
+  background: red;
+  transition: opacity 400ms ease;
+}
+
+.nav .toggler:checked + .hamburger div {
+  transform: rotate(135deg);
+}
+
+.nav .toggler:checked + .hamburger div::before, .nav .toggler:checked + .hamburger div::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.nav .toggler:checked:hover + .hamburger div {
+  transform: rotate(225deg);
+}
+
+.nav .hamburger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  background: #7880b5;
+}
+
+.nav .hamburger div {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background: #ddff94;
+  transition: transform 400ms ease;
+}
+
+.nav .hamburger div:before, .nav .hamburger div:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  width: 100%;
+  height: 2px;
+  background: inherit;
+}
+
+.nav .hamburger div:after {
+  top: 10px;
+}
+
+.nav__menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.nav__menu div {
+  background: #7880b5;
+  opacity: 0.9;
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vw;
+  flex: none;
+  transform: scale(0);
+  transition: transform 250ms ease;
+}
+
+.nav__menu div div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  transition: opacity 250ms ease;
+}
+
+.nav__list {
+  padding: 0;
+}
+
+.nav__item {
+  margin: 2rem 0;
+}
+
 .nav__link {
   text-transform: uppercase;
+  font-weight: bold;
   color: white;
 }
 

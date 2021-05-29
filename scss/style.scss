@@ -40,6 +40,12 @@ $clr--text: hsl(0, 0%, 85%);
   font-size: clamp(1rem, calc(5vw + 1rem) 15rem);
 }
 
+%center-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 *,
 *::before,
 *::after {
@@ -182,13 +188,147 @@ h3 {
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1.125rem;
+
   // background: darken($clr--background, 10%);
 }
 
 // Navigation
 .nav {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+
+  .toggler {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 2;
+
+    &:checked {
+      // Show Menu
+      & ~ .nav__menu {
+        visibility: visible;
+
+        & > div {
+          transform: scale(1);
+          transition: all 400ms ease-in;
+        }
+
+        & ~ .nav__list {
+          opacity: 1;
+          background: red;
+          transition: opacity 400ms ease;
+        }
+      }
+
+      & + .hamburger {
+        div {
+          transform: rotate(135deg);
+
+          &::before,
+          &::after {
+            top: 0;
+            transform: rotate(90deg);
+          }
+        }
+      }
+      &:hover {
+        & + .hamburger {
+          div {
+            transform: rotate(225deg);
+          }
+        }
+      }
+    }
+  }
+
+  .hamburger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    padding: 1rem;
+    background: $clr--primary;
+    @extend %center-items;
+
+    // Hamburger Line
+    div {
+      position: relative;
+      width: 100%;
+      height: 2px;
+      background: $clr--accent;
+      @extend %center-items;
+      transition: transform 400ms ease;
+
+      // Top and bottom lines
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        top: -10px;
+        width: 100%;
+        height: 2px;
+        background: inherit;
+      }
+
+      // bottom lines
+      &:after {
+        top: 10px;
+      }
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    @extend %center-items;
+    overflow: hidden;
+    flex-direction: column;
+
+    div {
+      background: $clr--primary;
+      opacity: 0.9;
+      border-radius: 50%;
+      width: 200vw;
+      height: 200vw;
+      @extend %center-items;
+      flex: none;
+      transform: scale(0);
+      transition: transform 250ms ease;
+
+      div {
+        text-align: center;
+        max-width: 90vw;
+        max-height: 100vh;
+        transition: opacity 250ms ease;
+      }
+    }
+  }
+
+  &__list {
+    padding: 0;
+    // opacity: 0;
+  }
+
+  &__item {
+    margin: 2rem 0;
+  }
+
   &__link {
     text-transform: uppercase;
+    font-weight: bold;
     color: white;
     &:hover,
     &:focus {
