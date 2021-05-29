@@ -1,5 +1,6 @@
 $clr--background: hsl(244, 16%, 18%);
 $clr--primary: hsl(232, 29%, 59%);
+$clr--primary-light: hsl(233, 30%, 82%);
 $clr--accent: hsl(79, 100%, 79%);
 $clr--tertiary: hsl(18, 100%, 72%);
 $br--radius: 0.5em;
@@ -126,6 +127,7 @@ h3 {
 .wrapper {
   gap: 1em;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .spacing > * + * {
@@ -187,145 +189,11 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 1.125rem;
-
-  // background: darken($clr--background, 10%);
+  padding: 2rem;
 }
 
 // Navigation
 .nav {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: 0;
-
-  .toggler {
-    position: absolute;
-    top: 0;
-    right: 0;
-    opacity: 0;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    z-index: 2;
-
-    &:checked {
-      // Show Menu
-      & ~ .nav__menu {
-        visibility: visible;
-
-        & > div {
-          transform: scale(1);
-          transition: all 400ms ease-in;
-        }
-
-        & ~ .nav__list {
-          opacity: 1;
-          background: red;
-          transition: opacity 400ms ease;
-        }
-      }
-
-      & + .hamburger {
-        div {
-          transform: rotate(135deg);
-
-          &::before,
-          &::after {
-            top: 0;
-            transform: rotate(90deg);
-          }
-        }
-      }
-      &:hover {
-        & + .hamburger {
-          div {
-            transform: rotate(225deg);
-          }
-        }
-      }
-    }
-  }
-
-  .hamburger {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
-    width: 60px;
-    height: 60px;
-    padding: 1rem;
-    background: $clr--primary;
-    @extend %center-items;
-
-    // Hamburger Line
-    div {
-      position: relative;
-      width: 100%;
-      height: 2px;
-      background: $clr--accent;
-      @extend %center-items;
-      transition: transform 400ms ease;
-
-      // Top and bottom lines
-      &:before,
-      &:after {
-        content: "";
-        position: absolute;
-        z-index: 1;
-        top: -10px;
-        width: 100%;
-        height: 2px;
-        background: inherit;
-      }
-
-      // bottom lines
-      &:after {
-        top: 10px;
-      }
-    }
-  }
-
-  &__menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    visibility: hidden;
-    @extend %center-items;
-    overflow: hidden;
-    flex-direction: column;
-
-    div {
-      background: $clr--primary;
-      opacity: 0.9;
-      border-radius: 50%;
-      width: 200vw;
-      height: 200vw;
-      @extend %center-items;
-      flex: none;
-      transform: scale(0);
-      transition: transform 250ms ease;
-
-      div {
-        text-align: center;
-        max-width: 90vw;
-        max-height: 100vh;
-        transition: opacity 250ms ease;
-      }
-    }
-  }
-
-  &__list {
-    padding: 0;
-    // opacity: 0;
-  }
-
-  &__item {
-    margin: 2rem 0;
-  }
-
   &__link {
     text-transform: uppercase;
     font-weight: bold;
@@ -335,10 +203,73 @@ h3 {
       color: darken(white, 20%);
     }
   }
-  @include mq--min(768px) {
+
+  &__menu {
+    i {
+      color: $clr--primary-light;
+    }
+
+    &--open,
+    &--close {
+      font-size: 2rem;
+      cursor: pointer;
+      display: none;
+    }
+
+    &--open {
+      display: block;
+      margin: 2rem;
+      transition: all 250ms ease-in-out;
+    }
+
+    &--close {
+      display: none;
+      position: absolute;
+      top: 2.65rem;
+      right: 2.2rem;
+      z-index: 10;
+    }
+  }
+
+  @include mq--min-max(320px, 768px) {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    &__list {
+      display: flex;
+      padding: 2rem 0;
+      margin: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      background: fade-out($clr--background, 0.3);
+      transition: top 500ms ease;
+      display: none;
+    }
+
+    &__item {
+      margin-top: 2rem;
+    }
+  }
+
+  @include mq--min(769px) {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &__menu {
+      &--open,
+      &--close {
+        display: none;
+      }
+    }
+
     &__list {
       margin: 0;
       display: flex;
@@ -360,7 +291,6 @@ h3 {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    // height: calc(100vh - 10rem);
 
     .col {
       flex-basis: 45%;
