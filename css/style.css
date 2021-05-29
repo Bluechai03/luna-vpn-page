@@ -1,4 +1,4 @@
-.btn {
+.btn, .demo select {
   display: inline-block;
   text-decoration: none;
   text-transform: uppercase;
@@ -7,7 +7,7 @@
   padding: 0.25em 1em;
   margin: 0.375em;
   font-family: "Kanit", sans-serif;
-  transition: opacity 250ms linear, transform 250ms ease-in-out, background-color 200ms ease-out;
+  transition: opacity 100ms linear, transform 100ms ease-in-out, background-color 100ms ease-out, border 100ms ease-in-out;
 }
 
 *,
@@ -50,7 +50,7 @@ h1 {
   font-family: "Kanit", sans-serif;
   color: white;
   line-height: 1.2;
-  font-size: 2.5rem;
+  font-size: clamp(2.5rem, calc(5vw + 1rem), 3rem);
 }
 
 h2,
@@ -61,12 +61,41 @@ h3 {
 
 .container {
   width: 85%;
-  max-width: 1024px;
+  max-width: 1280px;
   margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: minmax(150px, auto);
+  grid-gap: 1em;
+  place-content: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .flex {
   display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  .flex {
+    flex-direction: row;
+  }
+}
+
+.wrapper {
+  gap: 1em;
+  justify-content: center;
 }
 
 .spacing > * + * {
@@ -94,8 +123,94 @@ h3 {
   color: #282735;
 }
 
+.btn--bg {
+  color: #282735;
+  border: 4px solid #282735;
+}
+
+.btn--bg:hover, .btn--bg:focus {
+  background: #ddff94;
+  border-color: #ddff94;
+}
+
+.card {
+  background: white;
+  color: black;
+  border-radius: 0.5em;
+  width: 90%;
+  max-width: 300px;
+  padding: 1em;
+  margin: 0.75rem auto;
+  transform: scale(0.9);
+  transition: transform 250ms ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1) rotate(5deg);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.125rem;
+}
+
+.nav__link {
+  text-transform: uppercase;
+  color: white;
+}
+
+.nav__link:hover, .nav__link:focus {
+  color: #cccccc;
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav__list {
+    margin: 0;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+  }
+  .nav__item {
+    display: inline-block;
+  }
+}
+
 .hero {
-  margin: 7em auto;
+  margin: 2rem auto 7rem;
+  flex-direction: column-reverse;
+}
+
+@media screen and (min-width: 1024px) {
+  .hero {
+    text-align: left;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hero .col {
+    flex-basis: 45%;
+  }
+  .hero .col + .col {
+    flex-basis: 65%;
+  }
+}
+
+.hero__details {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 55ch;
+  font-size: clamp(1rem, calc(5vw + 1rem), 1.125rem);
+}
+
+.section {
+  margin-bottom: 5em;
 }
 
 .section__sub-title {
@@ -106,63 +221,84 @@ h3 {
 
 .section__details {
   padding: 0 1.125em;
-}
-
-.section .feature-item {
-  margin: 3.75rem auto;
-  transform: scale(0.9);
-  transition: transform 250ms ease-in-out;
-}
-
-.section .feature-item:hover {
-  transform: scale(1);
-}
-
-.section .pricing__price {
-  margin: 0.5rem;
-  color: #7880b5;
-}
-
-.section .pricing__price span {
-  display: block;
-  font-size: 1rem;
+  max-width: 55ch;
+  margin: 1.5rem auto auto;
 }
 
 .section-demo {
   height: 100vh;
 }
 
-.pricing-item .btn {
-  background: white;
-  color: #282735;
-  border-color: #282735;
-}
-
-.pricing-item .btn:hover, .pricing-item .btn:focus {
-  border-color: #282735;
-  background: #282735;
-  color: white;
-}
-
-.card {
-  background: white;
-  color: black;
-  border-radius: 0.5em;
-  padding: 1em;
-  margin: 3rem 0;
+.features__item {
+  margin: 3.75rem auto;
   transform: scale(0.9);
   transition: transform 250ms ease-in-out;
 }
 
-.card:hover {
-  transform: translateY(-25px);
+.features__item:hover, .features__item:focus {
+  transform: scale(1);
+}
+
+.pricing__title {
+  color: #282735;
+}
+
+.pricing__price {
+  margin: 1rem 0.5rem;
+  color: #7880b5;
+}
+
+.pricing__price span {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .link--try-demo {
+  display: inline-block;
   color: #ddff94;
+  padding: 1em;
+  transition: transform 150ms ease-in-out, color 150ms ease-in;
 }
 
 .link--try-demo .icon {
   display: block;
+}
+
+.link--try-demo:hover, .link--try-demo:focus {
+  transform: translateY(-1rem);
+  color: #ff9b70;
+}
+
+.demo__ip-address {
+  color: #fd4e4e;
+  font-size: clamp(3rem, calc(5vw + 1rem), 5rem);
+  font-weight: 400;
+}
+
+.demo select {
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 0.5em 0.75em;
+  border: unset;
+}
+
+.demo select:hover, .demo select:focus {
+  opacity: 0.9;
+}
+
+@media screen and (min-width: 1024px) {
+  .demo .col {
+    flex-basis: 55%;
+  }
+  .demo .col + .col {
+    flex-basis: 45%;
+  }
+}
+
+.footer {
+  display: block;
+  padding: 1.5rem;
+  background: #121118;
 }
 /*# sourceMappingURL=style.css.map */

@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -14,108 +21,133 @@
     <title>VPN Landing Page</title>
   </head>
   <body>
-    <header>
-      <!-- <nav>
+    <header class="header">
+      <div class="logo"><img src="images/icon_logo.png" alt="" /></div>
+      <nav class="nav">
+        <!-- <button class="nav__toggle"></button> -->
         <ul class="nav__list">
-          <li class="nav__item"><a href="" class="nav__link">Features</a></li>
-          <li class="nav__item"><a href="" class="nav__link">Pricing</a></li>
-          <li class="nav__item"><a href="" class="nav__link">Demo</a></li>
-          <li class="nav__item"><a href="" class="nav__btn">Log In</a></li>
+          <li class="nav__item">
+            <a href="#section-features" class="nav__link">Features</a>
+          </li>
+          <li class="nav__item">
+            <a href="#section-pricing" class="nav__link">Pricing</a>
+          </li>
+          <li class="nav__item">
+            <a href="#section-demo" class="nav__link">Demo</a>
+          </li>
+          <li class="nav__item">
+            <a href="" class="btn btn--accent">Log In</a>
+          </li>
         </ul>
-      </nav> -->
+      </nav>
     </header>
-    <main>
-      <div class="hero container">
+    <main class="container">
+      <div class="hero flex">
         <div class="col spacing">
-          <h1 class="hero-title">Stay Secure Online Uninterrupted</h1>
+          <h1 class="hero__title">Stay Secure Online Uninterrupted</h1>
           <p class="hero__details">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-            tempus neque vel magna laoreet tincidunt.
+            Whether your browsing social media, playing games or attending
+            online classes, Our VPN service Luna makes sure you stay safe online
+            without slowing your connection down.
           </p>
-          <a href="" class="btn btn--primary">Try our Demo</a>
+          <a href="#section-demo" class="btn btn--primary">Try our Demo</a>
           <a href="" class="btn btn--accent">Sign Up</a>
         </div>
         <div class="col">
           <img src="images/illustration_hero.png" alt="" class="hero__img" />
         </div>
       </div>
-      <section class="section-features container spacing">
-        <h3 class="section__sub-title">Features</h3>
-        <h1 class="section__title">Lorem ipsum dolor sit amet</h1>
-        <p class="section__details">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos nemo
-          impedit quibusdam, ad beatae assumenda.
-        </p>
+      <section class="section features spacing" id="section-features">
+        <div class="section__content">
+          <h3 class="section__sub-title">Features</h3>
+          <h1 class="section__title">Keep Prying Eyes Away</h1>
+          <p class="section__details">
+            We’ll never collect data from any of your devices because we value
+            privacy. You’ll also be able to access anything online from any
+            country depending on the server you connect to.
+          </p>
+        </div>
         <div class="grid spacing">
-          <div class="feature-item">
-            <img src="images/icon_ip-address.png" alt="" class="feature__img" />
-            <h3 class="feature-title">Hide your IP Address</h2>
+          <div class="features__item">
+            <img
+              src="images/icon_ip-address.png"
+              alt=""
+              class="features__img"
+            />
+            <h3 class="features__title">Hide your IP Address</h3>
           </div>
-          <div class="feature-item">
-            <img src="images/icon_security.png" alt="" class="feature__img" />
-            <h3 class="feature-title">No Recorded Logs of Data</h2>
+          <div class="features__item">
+            <img src="images/icon_security.png" alt="" class="features__img" />
+            <h3 class="features__title">No Recorded Logs of Data</h3>
           </div>
-          <div class="feature-item">
-            <img src="images/icon_servers.png" alt="" class="feature__img" />
-            <h3 class="feature-title">50+ Servers Worldwide</h2>
+          <div class="features__item">
+            <img src="images/icon_servers.png" alt="" class="features__img" />
+            <h3 class="features-title">50+ Servers Worldwide</h3>
           </div>
-          <div class="feature-item">
+          <div class="features__item">
             <img
               src="images/icon_stream-shows.png"
               alt=""
-              class="feature__img"
+              class="features__img"
             />
-            <h3 class="feature-title">Stream Shows from any Country</h2>
+            <h3 class="features__title">Stream Shows from any Country</h3>
           </div>
-          <div class="feature-item">
+          <div class="features__item">
             <img
               src="images/icon_online-classes.png"
               alt=""
-              class="feature__img"
+              class="features__img"
             />
-            <h3 class="feature-title">Smooth Connection for Online Classes</h2>
+            <h3 class="features__title">
+              Smooth Connection for Online Classes
+            </h3>
           </div>
-          <div class="feature-item">
+          <div class="features__item">
             <img
               src="images/icon_credit-cards.png"
               alt=""
-              class="feature__img"
+              class="features__img"
             />
-            <h3 class="feature-title">Multiple Payment Options</h2>
+            <h3 class="features__title">Multiple Payment Options</h3>
           </div>
         </div>
       </section>
-      <section class="section-pricing container spacing">
-        <h3 class="section__sub-title">Pricing</h3>
-        <h1 class="section__title">Lorem ipsum dolor sit amet</h1>
-        <p class="section__details">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos nemo
-          impedit quibusdam, ad beatae assumenda.
-        </p>
-        <div class="wrapper">
-          <div class="card pricing-item">
+      <section class="section pricing spacing" id="section-pricing">
+        <div class="section__content">
+          <h3 class="section__sub-title">Pricing</h3>
+          <h1 class="section__title">A Plan for Everyone</h1>
+          <p class="section__details">
+            Doesn’t matter if you’re a student with little to no finances or
+            you’re incredibly well off, we have all the perfect packages for
+            you!
+          </p>
+        </div>
+        <div class="wrapper spacing flex">
+          <div class="card pricing__item">
             <h2 class="pricing__title">Broke Student</h2>
-            <p class="pricing__details">Lorem ipsum dolor sit amet</p>
+            <p class="pricing__details">When finances are looking bleak</p>
             <h1 class="pricing__price">$0.50 <span>Per user / month</span></h1>
-            <a href="" class="pricing--btn">Select Plan</a>
+            <a href="" class="btn btn--bg">Select Plan</a>
           </div>
-          <div class="card pricing-item">
+          <div class="card pricing__item">
             <h2 class="pricing__title">Student</h2>
-            <p class="pricing__details">Lorem ipsum dolor sit amet</p>
+            <p class="pricing__details">A regular package for any student</p>
             <h1 class="pricing__price">$10 <span>Per user / month</span></h1>
-            <a href="" class="btn pricing--btn">Select Plan</a>
+            <a href="" class="btn btn--bg">Select Plan</a>
           </div>
-          <div class="card pricing-item">
+          <div class="card pricing__item">
             <h2 class="pricing__title">Rich Student</h2>
-            <p class="pricing__details">Lorem ipsum dolor sit amet</p>
-            <h1 class="pricing__price">$50 <span>Per user / month</span></h1>
-            <a href="" class="btn pricing--btn">Select Plan</a>
+            <p class="pricing__details">If you want to flaunt your riches</p>
+            <h1 class="pricing__price">$200 <span>Per user / month</span></h1>
+            <a href="" class="btn btn--bg">Select Plan</a>
           </div>
         </div>
-        <a href="" class="link--try-demo">Try Our Demo</a>
+        <a href="#section-demo" class="link--try-demo"
+          >Try Our Demo<i class="fas fa-angle-down icon"></i
+        ></a>
       </section>
-      <section class="section-demo container">
-        <div class="wrapper">
+      <section class="section demo" id="section-demo">
+        <div class="flex">
           <div class="col">
             <img
               src="images/illustration_demo-disconnected.png"
@@ -124,10 +156,10 @@
             />
           </div>
           <div class="col">
-            <div class="demo-controls">
+            <div class="demo__controls">
               <h3 class="demo__subtitle">Current IP Address</h3>
               <h1 class="demo__ip-address">192.168.1.1</h1>
-              <h2 class="demo__status">Your safe to browse online!</h2>
+              <h2 class="demo__status">Oh no, Your location is exposed!</h2>
 
               <label for="servers">Choose a server:</label>
               <select name="servers" id="servers">
@@ -137,11 +169,14 @@
                 <option value="south-korea">South Korea</option>
                 <option value="japan">Japan</option>
               </select>
-              <a href="#" class="btn btn--demo">Connect</a>
+              <a href="#" class="btn btn--accent">Connect</a>
             </div>
           </div>
         </div>
       </section>
     </main>
+    <footer class="footer">
+      <p class="footer__details">Design and Development by Anna Montero</p>
+    </footer>
   </body>
 </html>
