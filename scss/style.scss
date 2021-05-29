@@ -2,7 +2,7 @@ $clr--background: hsl(244, 16%, 18%);
 $clr--primary: hsl(232, 29%, 59%);
 $clr--accent: hsl(79, 100%, 79%);
 $clr--tertiary: hsl(18, 100%, 72%);
-$br--radius: 15px;
+$br--radius: 0.5em;
 $ff--heading: "Kanit", sans-serif;
 $ff--sub-heading: "Viga", sans-serif;
 $ff--body: "Metrophobic", sans-serif;
@@ -17,7 +17,7 @@ $clr--text: hsl(0, 0%, 85%);
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 600;
-  border-radius: 0.5em;
+  border-radius: $br--radius;
   padding: 0.25em 1em;
   margin: 0.375em;
   font-family: $ff--heading;
@@ -39,6 +39,7 @@ body {
   color: $clr--text;
   text-align: center;
   line-height: 1.6;
+  position: relative;
 }
 
 img {
@@ -64,6 +65,7 @@ h1 {
   font-family: $ff--heading;
   color: $clr--heading;
   line-height: 1.2;
+  font-size: 2.5rem;
 }
 
 h2,
@@ -71,7 +73,7 @@ h3 {
   font-family: $ff--sub-heading;
   font-weight: 400;
 }
-
+// Utilities
 .container {
   width: 85%;
   max-width: 1024px;
@@ -111,10 +113,12 @@ h3 {
   }
 }
 
+// Hero
 .hero {
   margin: 7em auto;
 }
 
+// Section
 .section {
   &__sub-title {
     color: $clr--accent;
@@ -126,14 +130,59 @@ h3 {
     padding: 0 1.125em;
   }
 
-  &-features {
-    .feature-item {
-      margin: 3.75rem auto;
-      transform: scale(0.9);
-      transition: transform 250ms ease-in-out;
-      &:hover {
-        transform: scale(1);
-      }
+  .feature-item {
+    margin: 3.75rem auto;
+    transform: scale(0.9);
+    transition: transform 250ms ease-in-out;
+    &:hover {
+      transform: scale(1);
     }
+  }
+
+  .pricing__price {
+    margin: 0.5rem;
+    color: $clr--primary;
+    span {
+      display: block;
+      font-size: 1rem;
+    }
+  }
+
+  &-demo {
+    height: 100vh;
+  }
+}
+
+.pricing-item {
+  .btn {
+    background: white;
+    color: $clr--background;
+    border-color: $clr--background;
+    &:hover,
+    &:focus {
+      border-color: $clr--background;
+      background: $clr--background;
+      color: white;
+    }
+  }
+}
+
+.card {
+  background: white;
+  color: black;
+  border-radius: 0.5em;
+  padding: 1em;
+  margin: 3rem 0;
+  transform: scale(0.9);
+  transition: transform 250ms ease-in-out;
+  &:hover {
+    transform: translateY(-25px);
+  }
+}
+
+.link--try-demo {
+  color: $clr--accent;
+  .icon {
+    display: block;
   }
 }
