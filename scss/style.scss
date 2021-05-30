@@ -7,7 +7,10 @@ $clr--tertiary: hsl(18, 100%, 72%);
 $clr--heading: hsl(0, 0%, 100%);
 $clr--text: hsl(0, 0%, 85%);
 
+// Border radius
 $br--radius: 0.5em;
+
+// Font families
 $ff--heading: "Kanit", sans-serif;
 $ff--sub-heading: "Viga", sans-serif;
 $ff--body: "Metrophobic", sans-serif;
@@ -28,6 +31,8 @@ $ff--body: "Metrophobic", sans-serif;
 }
 
 // Placeholders
+
+// Properties for buttons
 %btn {
   display: inline-block;
   text-decoration: none;
@@ -39,18 +44,20 @@ $ff--body: "Metrophobic", sans-serif;
   transition: opacity 100ms linear, transform 100ms ease-in-out,
     background-color 100ms ease-out, border 100ms ease-in-out;
 
+  // Any second adjacent button will have a margin
   & + & {
     margin: 0.375em;
   }
 }
 
-// Center items using flexbox
+// Center items using flexbox and its properties
 %center-items {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+// set every element's box-sizing
 *,
 *::before,
 *::after {
@@ -69,18 +76,22 @@ body {
   overflow-x: hidden;
 }
 
+// Set max width of images to 100%
 img {
   max-width: 100%;
 }
 
+// Remove text decoration
 a {
   text-decoration: none;
 }
 
+// Remove list style
 ul {
   list-style: none;
 }
 
+// Remove margin for following headings and paragraphs
 h1,
 h2,
 h3,
@@ -88,11 +99,16 @@ p {
   margin: 0;
 }
 
+// Main title
 h1 {
   font-family: $ff--heading;
   color: $clr--heading;
-  line-height: 1.2;
-  font-size: clamp(2.5rem, calc(5vw + 1rem), 3rem);
+  line-height: 1.2; // Lessen line height
+  font-size: clamp(
+    2.5rem,
+    calc(5vw + 1rem),
+    3rem
+  ); // Increase size of heading when screen increases
 }
 
 h2,
@@ -104,36 +120,49 @@ h3 {
 // Utility classes
 .container {
   width: 85%;
-  max-width: 1280px;
-  margin: 0 auto;
+  max-width: 1280px; // Restrict maximum width of container to 1280px
+  margin: 0 auto; // Set container to center
 }
 
+// Grid layout
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); // Automatically creates a number of columns depending on available space
   grid-auto-rows: minmax(150px, auto);
-  grid-gap: 1em;
-  place-content: center;
+  grid-gap: 1em; // Add gap to each grid child
+  place-content: center; // Place content to center
+
+  // Mixin used for a media query above 1024px
   @include mq--min(1024px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); // Set columns to 3 columns to prevent it going over
   }
 }
 
+// Flexbox layout
 .flex {
   display: flex;
   flex-direction: column;
   gap: 5rem;
-  align-items: center;
-  justify-content: space-between;
+  align-items: center; // Center items
+  justify-content: space-between; // Add space between each flex child
+
+  // Mixin used for media query above 768px
   @include mq--min(768px) {
-    flex-direction: row;
+    flex-direction: row; // Change flex-direction to row
   }
 }
 
+// Wrapper class for flex containers
 .wrapper {
   gap: 1em;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: center; // Center element
+  flex-wrap: wrap; // Wrap element so it will be responsive
 }
 
 // Add spacing to stacked elements
@@ -143,19 +172,22 @@ h3 {
 
 // Buttons
 .btn {
+  // Extend btn placeholders to apply to this selector
   @extend %btn;
   &:hover,
   &:focus {
     opacity: 0.9;
-    transform: scale(1.05);
+    transform: scale(1.05); // Increase button size when hovered
   }
 
+  // Primary button
   &--primary {
     background: $clr--primary;
     color: white;
     border: 4px solid $clr--primary;
   }
 
+  // Accent button
   &--accent {
     color: $clr--accent;
     border: 4px solid $clr--accent;
@@ -166,6 +198,7 @@ h3 {
     }
   }
 
+  // Button with background colour
   &--bg {
     color: $clr--background;
     border: 4px solid $clr--background;
@@ -177,6 +210,7 @@ h3 {
   }
 }
 
+// Cards
 .card {
   background: white;
   color: black;
@@ -188,49 +222,54 @@ h3 {
   transition: transform 250ms ease-in-out;
 }
 
+// Header
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
+  position: sticky; // Stick header to page even when scrolling
+  top: 0; // Place header on the very top of page
   z-index: 2;
-  transition: background-color 250ms ease-in-out;
 }
 
 // Navigation
 .nav {
+  // Navigation links
   &__link {
-    text-transform: uppercase;
+    text-transform: uppercase; // Set text to all uppercase
     font-weight: bold;
     color: white;
+
+    // Darken text when in hovered or focused state
     &:hover,
     &:focus {
       color: darken(white, 20%);
     }
   }
 
+  // Hamburger menu
   &__menu {
-    i {
-      color: $clr--primary-light;
-    }
-
+    // Hamburger and close icons
     &--open,
     &--close {
       font-size: 2rem;
       cursor: pointer;
+      color: $clr--primary-light; // Set colour for icons
     }
 
+    // Hamburger icon
     &--open {
       display: block;
       margin: 1.25rem 2rem 2rem;
       transition: all 250ms ease-in-out;
+      // Change colour when in hover state
       &:hover {
         color: $clr--accent;
       }
     }
 
+    // Close icon
     &--close {
       display: none;
       position: absolute;
@@ -239,17 +278,21 @@ h3 {
       z-index: 10;
       transition: color 250ms ease-in-out;
 
+      // Change colour when in hover state
       &:hover {
         color: $clr--tertiary;
       }
     }
   }
 
-  @include mq--min-max(320px, 768px) {
+  // Media query for menu in screens of sizes 320px to 767px
+  @include mq--min-max(320px, 767px) {
     position: fixed;
     z-index: 1;
     top: 0;
     right: 0;
+
+    // Navigation list
     &__list {
       display: flex;
       padding: 2rem 0;
@@ -262,7 +305,7 @@ h3 {
       flex-direction: column;
       justify-content: flex-end;
       align-items: center;
-      background: fade-out(darken($clr--background, 10), 0.2);
+      background: fade-out(darken($clr--background, 10), 0.2); // Darken colour
       transition: top 500ms ease;
       display: none;
     }
@@ -272,11 +315,13 @@ h3 {
     }
   }
 
-  @include mq--min(769px) {
+  // Media query for menu in screens with a minimum width of 768px
+  @include mq--min(768px) {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
+    // Remove hamburger menu for bigger screens
     &__menu {
       &--open,
       &--close {
@@ -284,6 +329,7 @@ h3 {
       }
     }
 
+    // Set navigation menu to flex and display it in the header
     &__list {
       margin: 0;
       display: flex;
@@ -300,21 +346,27 @@ h3 {
 .hero {
   margin: 2rem auto 7rem;
   flex-direction: column-reverse;
+
+  // Media query for hero section in screens with a minimum width of 1024px
   @include mq--min(1024px) {
+    // Set 2 columns
     text-align: left;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 
+    // Set the left column to fill 45% of the container
     .col {
       flex-basis: 45%;
     }
 
+    // Set the right column to fill 65% of the container
     .col + .col {
       flex-basis: 65%;
     }
   }
 
+  // Text in hero section
   &__details {
     margin-left: auto;
     margin-right: auto;
@@ -331,21 +383,23 @@ h3 {
   &__sub-title {
     color: $clr--accent;
     font-size: 16px;
-    text-transform: uppercase;
+    text-transform: uppercase; // Set sub-title text to uppercase
   }
 
   &__details {
-    max-width: 50ch;
+    max-width: 50ch; // Limit the width of text to a maximum size of 50 character each line
     margin: 1.5rem auto 3rem;
   }
 }
 
-// Features
+// Features section
 .features {
+  // Each item in features icon
   &__item {
     margin: 3.75rem auto;
     transform: scale(0.9);
     transition: transform 250ms ease-in-out;
+    // Increase size of item when in hover or focus state
     &:hover,
     &:focus {
       transform: scale(1);
@@ -353,7 +407,7 @@ h3 {
   }
 }
 
-//Pricing
+//Pricing section
 .pricing {
   &__title {
     color: $clr--background;
@@ -362,6 +416,7 @@ h3 {
   &__price {
     margin: 1rem 0.5rem;
     color: $clr--primary;
+    // Span inside price element
     span {
       display: block;
       font-size: 1rem;
@@ -369,32 +424,43 @@ h3 {
     }
   }
 
+  // Rotate each pricing plan item
   &__item {
+    // Rotate 1st and 3rd cards -5 degrees in hover and focus state
     &--one:hover,
-    &--three:hover {
+    &--three:hover,
+    &--one:focus,
+    &--one:focus {
       transform: rotate(-5deg);
     }
 
-    &--two:hover {
+    // Rotate 2nd cards 5 degrees in hover and focus state
+    &--two:hover,
+    &--two:focus {
       transform: rotate(5deg);
     }
   }
 
+  // Media query for pricing section with screen sizes above 1280px
   @include mq--min(1280px) {
+    // Create 2 columns
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; // Set horizontal spacing of content to have white space in between
     text-align: left;
   }
 
+  // Media query for screen sizes between 1097px to 1280px
   @include mq--min-max(1097px, 1280px) {
     .spacing > * + * {
+      // remove margin
       margin-top: 0rem;
     }
   }
 }
 
+// Try demo link
 .link--try-demo {
   display: inline-block;
   color: $clr--accent;
@@ -403,42 +469,96 @@ h3 {
   .icon {
     display: block;
   }
+
   &:hover,
   &:focus {
-    transform: translateY(-1rem);
+    transform: translateY(-1rem); // Move element up by 1rem when hovered
     color: $clr--tertiary;
   }
 }
 
+// Demo section
 .demo {
-  &__img {
-  }
-
+  // IP Address text
   &__ip-address {
     color: hsl(0, 98%, 65%);
-    font-size: clamp(3rem, calc(5vw + 1rem), 5rem);
+    font-size: clamp(
+      3rem,
+      calc(5vw + 1rem),
+      5rem
+    ); // Original size is 3rem, it increases with the screen until it reaches 5rem
     font-weight: 400;
   }
 
+  // select element
   select {
+    // Extend btn placeholder and apply its properties to this selector
     @extend %btn;
     font-weight: 400;
     font-size: 1rem;
     padding: 0.5em 0.75em;
-    border: unset;
+    border: unset; // Remove any border styling
+
     &:hover,
     &:focus {
-      opacity: 0.9;
+      opacity: 0.9; // Change opacity when hovered or focused
     }
   }
 
+  // Media query for screen sizes above 1024px
   @include mq--min(1024px) {
+    // Set first column to 55% of the container
     .col {
       flex-basis: 55%;
     }
 
+    // Set second column to 45% of the container
     .col + .col {
       flex-basis: 45%;
     }
+  }
+}
+
+// Footer section
+.footer {
+  display: flex;
+  flex-flow: column wrap;
+  background: fade-out(
+    darken($clr--background, 10),
+    0.2
+  ); // Add opacity, darken colour then set as background colour
+  padding: 1rem;
+  text-align: left;
+  align-items: flex-start;
+  justify-content: center;
+
+  a {
+    color: $clr--accent;
+
+    &:hover {
+      color: $clr--tertiary;
+    }
+  }
+
+  // Container for footer lists
+  &__wrap {
+    margin: 1rem auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+  }
+
+  // Footer list
+  &__list {
+    text-align: left;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    margin: 0;
+    padding: 0;
+    font-size: 0.75rem;
   }
 }
