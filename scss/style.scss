@@ -1,22 +1,26 @@
+// Variables
 $clr--background: hsl(244, 16%, 18%);
 $clr--primary: hsl(232, 29%, 59%);
 $clr--primary-light: hsl(233, 30%, 82%);
 $clr--accent: hsl(79, 100%, 79%);
 $clr--tertiary: hsl(18, 100%, 72%);
+$clr--heading: hsl(0, 0%, 100%);
+$clr--text: hsl(0, 0%, 85%);
+
 $br--radius: 0.5em;
 $ff--heading: "Kanit", sans-serif;
 $ff--sub-heading: "Viga", sans-serif;
 $ff--body: "Metrophobic", sans-serif;
-$clr--heading: hsl(0, 0%, 100%);
-$clr--text: hsl(0, 0%, 85%);
 
 // Mixins
+// Media query taking only min-width
 @mixin mq--min($min-width) {
   @media screen and (min-width: $min-width) {
     @content;
   }
 }
 
+// Media query taking both min and max-width
 @mixin mq--min-max($min-width, $max-width) {
   @media screen and (min-width: $min-width) and (max-width: $max-width) {
     @content;
@@ -31,16 +35,16 @@ $clr--text: hsl(0, 0%, 85%);
   font-weight: 600;
   border-radius: $br--radius;
   padding: 0.25em 1em;
-  margin: 0.375em;
   font-family: $ff--heading;
   transition: opacity 100ms linear, transform 100ms ease-in-out,
     background-color 100ms ease-out, border 100ms ease-in-out;
+
+  & + & {
+    margin: 0.375em;
+  }
 }
 
-%details {
-  font-size: clamp(1rem, calc(5vw + 1rem) 15rem);
-}
-
+// Center items using flexbox
 %center-items {
   display: flex;
   align-items: center;
@@ -62,6 +66,7 @@ body {
   text-align: center;
   line-height: 1.6;
   position: relative;
+  overflow-x: hidden;
 }
 
 img {
@@ -95,6 +100,7 @@ h3 {
   font-family: $ff--sub-heading;
   font-weight: 400;
 }
+
 // Utility classes
 .container {
   width: 85%;
@@ -130,10 +136,12 @@ h3 {
   flex-wrap: wrap;
 }
 
+// Add spacing to stacked elements
 .spacing > * + * {
   margin-top: 1.375rem;
 }
 
+// Buttons
 .btn {
   @extend %btn;
   &:hover,
@@ -176,20 +184,19 @@ h3 {
   width: 90%;
   max-width: 300px;
   padding: 1em;
-  margin: 0.75rem auto;
   transform: scale(0.9);
   transition: transform 250ms ease-in-out;
-
-  &:hover {
-    transform: scale(1) rotate(5deg);
-  }
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  transition: background-color 250ms ease-in-out;
 }
 
 // Navigation
@@ -213,21 +220,28 @@ h3 {
     &--close {
       font-size: 2rem;
       cursor: pointer;
-      display: none;
     }
 
     &--open {
       display: block;
-      margin: 2rem;
+      margin: 1.25rem 2rem 2rem;
       transition: all 250ms ease-in-out;
+      &:hover {
+        color: $clr--accent;
+      }
     }
 
     &--close {
       display: none;
       position: absolute;
-      top: 2.65rem;
+      top: 1.9rem;
       right: 2.2rem;
       z-index: 10;
+      transition: color 250ms ease-in-out;
+
+      &:hover {
+        color: $clr--tertiary;
+      }
     }
   }
 
@@ -248,7 +262,7 @@ h3 {
       flex-direction: column;
       justify-content: flex-end;
       align-items: center;
-      background: fade-out($clr--background, 0.3);
+      background: fade-out(darken($clr--background, 10), 0.2);
       transition: top 500ms ease;
       display: none;
     }
@@ -312,6 +326,8 @@ h3 {
 // Section
 .section {
   margin-bottom: 5em;
+  padding: 7rem 0 0;
+
   &__sub-title {
     color: $clr--accent;
     font-size: 16px;
@@ -319,13 +335,8 @@ h3 {
   }
 
   &__details {
-    padding: 0 1.125em;
-    max-width: 55ch;
-    margin: 1.5rem auto auto;
-  }
-
-  &-demo {
-    height: 100vh;
+    max-width: 50ch;
+    margin: 1.5rem auto 3rem;
   }
 }
 
@@ -357,6 +368,31 @@ h3 {
       font-weight: 400;
     }
   }
+
+  &__item {
+    &--one:hover,
+    &--three:hover {
+      transform: rotate(-5deg);
+    }
+
+    &--two:hover {
+      transform: rotate(5deg);
+    }
+  }
+
+  @include mq--min(1280px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  @include mq--min-max(1097px, 1280px) {
+    .spacing > * + * {
+      margin-top: 0rem;
+    }
+  }
 }
 
 .link--try-demo {
@@ -375,8 +411,11 @@ h3 {
 }
 
 .demo {
+  &__img {
+  }
+
   &__ip-address {
-    color: rgb(253, 78, 78);
+    color: hsl(0, 98%, 65%);
     font-size: clamp(3rem, calc(5vw + 1rem), 5rem);
     font-weight: 400;
   }
@@ -402,10 +441,4 @@ h3 {
       flex-basis: 45%;
     }
   }
-}
-
-.footer {
-  display: block;
-  padding: 1.5rem;
-  background: darken($clr--background, 10%);
 }

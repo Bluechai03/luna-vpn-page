@@ -36,7 +36,7 @@
             <a href="#section-demo" class="nav__link">Demo</a>
           </li>
           <li class="nav__item">
-            <a href="" class="btn btn--accent">Log In</a>
+            <a href="#" class="btn btn--accent">Log In</a>
           </li>
         </ul>
         <div class="nav__menu--close"><i class="fa fa-times"></i></div>
@@ -59,7 +59,7 @@
         </div>
       </div>
       <section class="section features spacing" id="section-features">
-        <div class="section__content">
+        <div class="section__content" id="features-content">
           <h3 class="section__sub-title">Features</h3>
           <h1 class="section__title">Keep Prying Eyes Away</h1>
           <p class="section__details">
@@ -114,7 +114,7 @@
         </div>
       </section>
       <section class="section pricing spacing" id="section-pricing">
-        <div class="section__content">
+        <div class="section__content" id="pricing-content">
           <h3 class="section__sub-title">Pricing</h3>
           <h1 class="section__title">A Plan for Everyone</h1>
           <p class="section__details">
@@ -123,37 +123,37 @@
             you!
           </p>
         </div>
-        <div class="wrapper spacing flex">
-          <div class="card pricing__item">
+        <div class="wrapper spacing flex" id="cards">
+          <div class="card pricing__item--one">
             <h2 class="pricing__title">Broke Student</h2>
             <p class="pricing__details">When finances are looking bleak</p>
             <h1 class="pricing__price">$0.50 <span>Per user / month</span></h1>
-            <a href="" class="btn btn--bg">Select Plan</a>
+            <a href="#" class="btn btn--bg">Select Plan</a>
           </div>
-          <div class="card pricing__item">
+          <div class="card pricing__item--two">
             <h2 class="pricing__title">Student</h2>
             <p class="pricing__details">A regular package for any student</p>
             <h1 class="pricing__price">$10 <span>Per user / month</span></h1>
-            <a href="" class="btn btn--bg">Select Plan</a>
+            <a href="#" class="btn btn--bg">Select Plan</a>
           </div>
-          <div class="card pricing__item">
+          <div class="card pricing__item--three">
             <h2 class="pricing__title">Rich Student</h2>
             <p class="pricing__details">If you want to flaunt your riches</p>
             <h1 class="pricing__price">$200 <span>Per user / month</span></h1>
-            <a href="" class="btn btn--bg">Select Plan</a>
+            <a href="#" class="btn btn--bg">Select Plan</a>
           </div>
         </div>
-        <a href="#section-demo" class="link--try-demo"
-          >Try Our Demo<i class="fas fa-angle-down icon"></i
-        ></a>
       </section>
+      <a href="#section-demo" class="link--try-demo"
+        >Try Our Demo<i class="fas fa-angle-down icon"></i
+      ></a>
       <section class="section demo" id="section-demo">
         <div class="flex">
-          <div class="col">
+          <div class="col demo__img">
             <img
               src="images/illustration_demo-disconnected.png"
               alt=""
-              class="section--img"
+              id="demo-img"
             />
           </div>
           <div class="col">
@@ -164,19 +164,28 @@
 
               <label for="servers">Choose a server:</label>
               <select name="servers" id="servers">
-                <option value="uk">United Kingdom</option>
-                <option value="sweden">Sweden</option>
-                <option value="singapore">Singapore</option>
-                <option value="south-korea">South Korea</option>
-                <option value="japan">Japan</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Singapore">Singapore</option>
+                <option value="South Korea">South Korea</option>
+                <option value="Japan">Japan</option>
               </select>
-              <a href="#" class="btn btn--accent">Connect</a>
+              <a href="#" class="btn btn--accent" id="demo-btn">Connect</a>
             </div>
           </div>
         </div>
       </section>
     </main>
 
+    <!-- Jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+      integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+      crossorigin="anonymous"
+    ></script>
+    <!-- GSAP toolset for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
