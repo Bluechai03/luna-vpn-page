@@ -231,6 +231,7 @@ h3 {
   position: sticky; // Stick header to page even when scrolling
   top: 0; // Place header on the very top of page
   z-index: 2;
+  transition: background-color 250ms ease; // Animate background colour transition
 }
 
 // Navigation
