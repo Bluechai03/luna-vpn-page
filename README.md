@@ -1,2 +1,2 @@
 # luna-vpn-landing-page
-A responsive website to a fictional VPN service
+A responsive website for a fictional VPN service
