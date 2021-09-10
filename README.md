@@ -1,26 +1,3 @@
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-
-<!-- [![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url] -->
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -33,14 +10,7 @@
   <p align="center">
   A landing page website for a fictional VPN service!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
     <a href="https://bluechai03.github.io/luna-vpn-page/">View Demo</a>
-    ·
-    <a href="https://github.com/Bluechai03/luna-vpn-page/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/Bluechai03/luna-vpn-page/issues">Request Feature</a>
   </p>
 </p>
 
@@ -54,8 +24,6 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
@@ -64,11 +32,19 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[Website](https://i.imgur.com/bJFyBf1.png) This was a project created for one of my university modules, Responsive Web. The goal was to create a website and apply key principles of responsiveness. We were also advised to take user experience into account.
+
+The concept I decided for this project is a landing page for a fictional VPN service called Luna. The purpose of this website is to display all the information a potential user would like to see before availing for the service. I took into account user experience and accomplished this by adding smooth animations and creating a navigation menu.
+
+### Features
+
+- Information about features and pricing of the VPN service
+- Interactable buttons
+- Navigation bar fixed to the top of the page, then transforming to a hamburger menu for smaller screen sizes
+- Animations throughout the entire page, including animation of sections when scrolling
+- An interactable 'demo' section at the end of the page, showcasing how the VPN would function
 
 ### Built With
-
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
 - [HTML5](https://html.spec.whatwg.org/)
 - [SCSS](https://sass-lang.com/)
@@ -80,7 +56,7 @@ This section should list any major frameworks that you built your project using.
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - montero.katreena@gmail.com
+Anna Montero - [Bluechai03](https://github.com/Bluechai03) - montero.katreena@gmail.com
 
 Project Link: [https://github.com/Bluechai03/luna-vpn-page](https://github.com/Bluechai03/luna-vpn-page)
 
@@ -91,20 +67,3 @@ Project Link: [https://github.com/Bluechai03/luna-vpn-page](https://github.com/B
 - [The Noun Project](https://thenounproject.com/)
 - [Figma](https://www.figma.com/)
 - [Best README Template](https://github.com/othneildrew/Best-README-Template)
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-<!-- [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png -->
