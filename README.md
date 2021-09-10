@@ -32,7 +32,11 @@
 
 ## About The Project
 
-[Website](https://i.imgur.com/bJFyBf1.png) This was a project created for one of my university modules, Responsive Web. The goal was to create a website and apply key principles of responsiveness. We were also advised to take user experience into account.
+<div align='center'>
+<img src="https://i.imgur.com/bJFyBf1.png" alt="Website Screenshot">
+</div>
+
+This was a project created for one of my university modules, Responsive Web. The goal was to create a website and apply key principles of responsiveness. We were also advised to take user experience into account.
 
 The concept I decided for this project is a landing page for a fictional VPN service called Luna. The purpose of this website is to display all the information a potential user would like to see before availing for the service. I took into account user experience and accomplished this by adding smooth animations and creating a navigation menu.
 
